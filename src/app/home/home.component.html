@@ -1,0 +1,1026 @@
+<style type="text/css">
+    .buttonBack___1mlaL,
+    .buttonFirst___2rhFr,
+    .buttonLast___2yuh0,
+    .buttonNext___2mOCa,
+    .buttonNext___3Lm3s,
+    .dot___3c3SI {
+        cursor: pointer
+    }
+
+    .image___xtQGH {
+        display: block;
+        width: 100%;
+        height: 100%
+    }
+
+    .container___2O72F {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%
+    }
+
+    .overlay___IV4qY {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        cursor: zoom-in;
+        transition: opacity .3s, transform .3s
+    }
+
+    .hover___MYy31,
+    .loading___1pvNI,
+    .zoom___3kqYk {
+        opacity: 1
+    }
+
+    .imageLoadingSpinnerContainer___3UIPD {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #f4f4f4
+    }
+
+    .slide___3-Nqo {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        height: 0;
+        margin: 0;
+        list-style-type: none
+    }
+
+    .slide___3-Nqo:focus {
+        outline: none !important
+    }
+
+    .slideHorizontal___1NzNV {
+        float: left
+    }
+
+    .slideInner___2mfX9 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%
+    }
+
+    .focusRing___1airF {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        left: 5px;
+        pointer-events: none;
+        outline-width: 5px;
+        outline-style: solid;
+        outline-color: Highlight
+    }
+
+    @media (-webkit-min-device-pixel-ratio:0) {
+        .focusRing___1airF {
+            outline-style: auto;
+            outline-color: -webkit-focus-ring-color
+        }
+    }
+
+    .horizontalSlider___281Ls {
+        position: relative;
+        overflow: hidden
+    }
+
+    .horizontalSliderTray___1L-0W {
+        overflow: hidden;
+        width: 100%
+    }
+
+    .verticalSlider___34ZFD {
+        position: relative;
+        overflow: hidden
+    }
+
+    .verticalSliderTray___267D8 {
+        overflow: hidden
+    }
+
+    .verticalTray___12Key {
+        float: left
+    }
+
+    .verticalSlideTrayWrap___2nO7o {
+        overflow: hidden
+    }
+
+    .sliderTray___-vHFQ {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin: 0
+    }
+
+    .sliderAnimation___300FY {
+        transition: transform .5s;
+        transition-timing-function: cubic-bezier(.645, .045, .355, 1);
+        will-change: transform
+    }
+
+    .masterSpinnerContainer___1Z6hB {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #f4f4f4
+    }
+
+    .spinner___27VUp {
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        width: 30px;
+        height: 30px;
+        animation-name: a;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        border-width: 4px;
+        border-style: solid;
+        border-top-color: #000;
+        border-right-color: #a9a9a9;
+        border-bottom-color: #a9a9a9;
+        border-left-color: #a9a9a9;
+        border-radius: 30px
+    }
+
+    @keyframes a {
+        0% {
+            transform: rotate(0deg)
+        }
+
+        to {
+            transform: rotate(1turn)
+        }
+    }
+</style>
+<div class="site-root">
+    <header class="header header--">
+        <div class="section__inner header__inner">
+
+            <div class="u-width-1/1 u-display-flex">
+                <a href="/" class="header__logo">
+
+                    <svg class="svg svg--logo-soe " aria-hidden="true" viewBox="0 0 200 83">
+
+                        <g fill="none" fill-rule="evenodd">
+                            <g transform="translate(0 .072)">
+                                <!-- <mask id="logo-soe-b" fill="#fff">
+                                        <use xlink:href="#logo-soe-a"></use>
+                                    </mask> -->
+                                <path
+                                    d="M44.668 3.788v38.123a3.291 3.291 0 01-3.29 3.293H3.296c-2.93 0-4.398-3.547-2.326-5.622L39.052 1.46c2.073-2.075 5.616-.605 5.616 2.328"
+                                    fill="#6ABD45" mask="url(#logo-soe-b)"></path>
+                            </g>
+                            <path
+                                d="M28.588 70.594V32.472a3.291 3.291 0 013.29-3.293H69.96c2.93 0 4.399 3.547 2.326 5.621L34.204 72.922c-2.072 2.075-5.616.606-5.616-2.328"
+                                fill="#00B9D9"></path>
+                            <path
+                                d="M41.407 45.275H28.588V32.443a3.262 3.262 0 013.26-3.264h12.82V42.01a3.262 3.262 0 01-3.26 3.264"
+                                fill="#00AA4E"></path>
+                            <path
+                                d="M91.201 34.913c-.034-1.117-.836-1.466-1.777-1.466-.976 0-1.673.558-1.673 1.291 0 1.047.941 1.57 3.625 2.268 4.6 1.221 6.099 3.07 6.099 5.896 0 4.047-3.485 6.594-7.876 6.594-4.357 0-7.459-2.477-7.877-6.42h5.75c.175 1.221 1.046 1.78 2.196 1.78 1.01 0 2.021-.593 2.021-1.5 0-1.082-.662-1.64-3.554-2.547-4.88-1.5-6.169-3.419-6.169-5.687 0-3.838 3.59-6.315 7.493-6.315 4.182 0 7.145 2.303 7.423 6.106h-5.68zm23.002 4.221a4.91 4.91 0 00-4.914-4.919c-2.649 0-4.74 2.198-4.74 4.99 0 2.686 2.126 4.884 4.81 4.884 2.718 0 4.844-2.164 4.844-4.955zm0 9.699V46.74h-.07c-.836 1.71-3.137 2.756-5.68 2.756-5.716 0-9.69-4.5-9.69-10.362 0-5.722 4.148-10.326 9.69-10.326 2.37 0 4.565.942 5.68 2.72h.07V29.47h5.786v19.363h-5.786zm14.742 0l-6.936-19.362h5.994l3.694 12.07h.07l3.695-12.07h5.994l-6.97 19.362zm26.625-11.827c-.453-1.989-2.195-3.314-4.425-3.314-2.092 0-3.904 1.256-4.357 3.314h8.783zm-8.852 3.908c.314 2.198 2.161 3.663 4.531 3.663 1.568 0 2.58-.593 3.52-1.814h5.925c-1.847 4.221-5.368 6.698-9.445 6.698-5.577 0-10.247-4.5-10.247-10.257 0-5.582 4.462-10.396 10.143-10.396 5.785 0 10.211 4.57 10.211 10.57 0 .559-.035 1.013-.14 1.536h-14.498zm34.409-.211c0-3.493-2.815-6.487-6.363-6.487-3.49 0-6.303 3.023-6.303 6.663 0 3.522 2.843 6.487 6.333 6.487 3.606 0 6.333-2.994 6.333-6.663m-14.719.205c0-4.725 3.811-8.541 8.356-8.541 4.663 0 8.416 3.933 8.416 8.424 0 4.667-3.9 8.424-8.416 8.424-4.545 0-8.356-3.845-8.356-8.307m30.759 7.925v-8.952c0-3.61-2.17-5.665-4.984-5.665-3.108 0-5.015 2.378-5.015 5.518v9.1h-2.052V32.777h2.052v2.055h.06c1.025-1.556 2.843-2.466 4.925-2.466 4.428 0 7.066 3.053 7.066 7.514v8.952h-2.052zM95.896 62.067c-.453-1.99-2.196-3.315-4.426-3.315-2.091 0-3.903 1.256-4.357 3.315h8.783zm-8.852 3.907c.313 2.198 2.16 3.663 4.53 3.663 1.568 0 2.58-.593 3.52-1.814h5.925c-1.847 4.221-5.367 6.699-9.445 6.699-5.576 0-10.246-4.501-10.246-10.258 0-5.581 4.461-10.396 10.142-10.396 5.785 0 10.211 4.57 10.211 10.57a7.3 7.3 0 01-.14 1.536H87.045zm28.578 7.92V63.148c0-2.617-.906-3.838-3.032-3.838-2.335 0-3.311 1.291-3.311 3.908v10.676h-5.786V54.53h5.402v2.058h.07c1.22-1.988 2.928-2.72 5.263-2.72 3.484 0 7.18 1.952 7.18 7.674v12.35h-5.786zm22.025-11.827c-.453-1.99-2.195-3.315-4.426-3.315-2.09 0-3.903 1.256-4.356 3.315h8.782zm-8.852 3.907c.314 2.198 2.16 3.663 4.53 3.663 1.569 0 2.58-.593 3.52-1.814h5.925c-1.847 4.221-5.367 6.699-9.444 6.699-5.577 0-10.247-4.501-10.247-10.258 0-5.581 4.461-10.396 10.142-10.396 5.785 0 10.212 4.57 10.212 10.57 0 .56-.035 1.013-.14 1.536h-14.498zm17.111 7.92V54.53h5.437v2.058h.07c1.01-2.058 2.614-2.72 4.844-2.72v5.825c-3.45.035-4.565 1.326-4.565 3.524v10.676h-5.786z"
+                                fill="#fff"></path>
+                            <g transform="translate(156.303 53.349)">
+                                <!-- <mask id="logo-soe-d" fill="#fff">
+                                        <use xlink:href="#logo-soe-c"></use>
+                                    </mask> -->
+                                <path
+                                    d="M15.568 10.95c0-2.825-1.918-4.988-4.74-4.988-2.58 0-4.635 2.163-4.635 4.814 0 2.722 1.846 4.99 4.635 4.99 2.822 0 4.74-2.024 4.74-4.815zm-.035 7.327c-.872 1.849-3.033 2.896-5.402 2.896-5.646 0-9.724-4.36-9.724-10.188C.407 5.055 4.555.554 10.13.554c2.509 0 4.425.942 5.367 2.442h.07V1.182h5.784v17.305c0 2.616-.348 4.604-1.045 5.93-1.394 2.687-5.193 4.745-10.037 4.745-5.472 0-9.026-3.105-9.514-6.803h6.691c.662 1.43 1.951 1.919 3.38 1.919 2.928 0 4.706-1.919 4.706-5.442v-.56z"
+                                    fill="#fff" mask="url(#logo-soe-d)"></path>
+                            </g>
+                            <path fill="#fff"   d="M183.824 80.348l3.067-7.43-7.18-18.387h6.17l3.867 11.234h.07l3.695-11.234h6.133l-9.689 25.817z">
+                            </path>
+                        </g>
+
+                    </svg>
+                </a>
+
+                <div class="u-display-flex u-flex-direction-column u-flex-1@md u-align-items-flex-end">
+                    <div class="u-align-items-center u-display-none u-display-flex@md">
+                        <svg class="svg svg--phone svg--25 call-to-action__icon u-margin-right-sm" aria-hidden="true">
+
+                        </svg>
+                        <p class="header__contact js-call-center-info" data-fuse="" data-fuse-format="1-###-###-####"
+                            data-fuse-name="ES-SOE-FUSE-PERMA-BANNER" style="visibility: visible;">1-844-874-5016</p>
+                    </div>
+                    <nav class="navigation">
+                        <a class="navigation__toggle js-navigation-toggle">
+                            <svg class="svg svg--bars svg--14 navigation__toggle-icon open" aria-hidden="true"
+                                viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z">
+                                </path>
+                            </svg>
+
+                            <svg class="svg svg--times svg--10 navigation__toggle-icon close" aria-hidden="true">
+                                <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#times"></use>
+                            </svg>
+
+                        </a>
+                        <div style="height:30px;text-align:center">
+                            <div style="width: 155px;margin:auto">
+                                <i style="float:left;">
+                                    <div style="width: 20px;height:20px;">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                            class="svg-inline--fa fa-phone fa-w-16 fa-lg">
+                                            <path fill="currentColor"
+                                                d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
+                                                class=""></path>
+                                        </svg>
+                                    </div>
+                                </i>
+                                <i
+                                    style="float:left;margin-left:15px;font-family: Arial, Helvetica, sans-serif;font-weight: bold;">1-833-429-7598</i>
+                            </div>
+
+                        </div>
+                        <ul class="navigation__menu js-navigation-menu">
+
+                            <li class="navigation__menu-item">
+                                <a class="navigation__nav-link" href="/">Service Areas</a>
+                                <div class="navigation__sub-menu-toggle js-navigation-menu-toggle">
+                                    <svg class="svg svg--angle-up svg--7 navigation__sub-menu-toggle-icon"
+                                        aria-hidden="true">
+                                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#angle-up"></use>
+                                    </svg>
+
+                                </div>
+                                <ul class="navigation__sub-menu navigation__sub-menu--first-level">
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/texas/">Texas</a>
+                                        <div class="navigation__sub-menu-toggle js-navigation-menu-toggle">
+                                            <svg class="svg svg--angle-up svg--7 navigation__sub-menu-toggle-icon"
+                                                aria-hidden="true">
+                                                <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#angle-up">
+                                                </use>
+                                            </svg>
+                                        </div>
+                                        <ul class="navigation__sub-menu navigation__sub-menu--second-level">
+                                            <li class="navigation__sub-menu-item">
+                                                <a class="navigation__sub-nav-link" href="/texas/houston/">Houston</a>
+                                            </li>
+
+                                            <li class="navigation__sub-menu-item">
+                                                <a class="navigation__sub-nav-link" href="/texas/dallas/">Dallas</a>
+                                            </li>
+
+                                            <li class="navigation__sub-menu-item">
+                                                <a class="navigation__sub-nav-link" href="/texas/fort-worth/">Fort
+                                                    Worth</a>
+                                            </li>
+
+                                            <li class="navigation__sub-menu-item">
+                                                <a class="navigation__sub-nav-link"
+                                                    href="/texas/arlington/">Arlington</a>
+                                            </li>
+
+                                            <li class="navigation__sub-menu-item">
+                                                <a class="navigation__sub-nav-link" href="/texas/corpus-christi/">Corpus
+                                                    Christi</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/pennsylvania/">Pennsylvania</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/illinois/">Illinois</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/ohio/">Ohio</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/new-york/">New York</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/connecticut/">Connecticut</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/georgia/">Georgia</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/maryland/">Maryland</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/massachusetts/">Massachusetts</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/michigan/">Michigan</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/new-jersey/">New Jersey</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="navigation__menu-item">
+                                <a class="navigation__nav-link" href="/providers/">Providers</a>
+                                <div class="navigation__sub-menu-toggle js-navigation-menu-toggle">
+                                    <svg class="svg svg--angle-up svg--7 navigation__sub-menu-toggle-icon"
+                                        aria-hidden="true">
+                                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#angle-up"></use>
+                                    </svg>
+                                </div>
+                                <ul class="navigation__sub-menu navigation__sub-menu--first-level">
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/providers/txu-energy/">TXU Energy</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/providers/trieagle-energy/">TriEagle
+                                            Energy</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/providers/reliant-energy/">Reliant
+                                            Energy</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="navigation__menu-item">
+                                <a class="navigation__nav-link" href="/">Resources</a>
+                                <div class="navigation__sub-menu-toggle js-navigation-menu-toggle">
+                                    <svg class="svg svg--angle-up svg--7 navigation__sub-menu-toggle-icon"
+                                        aria-hidden="true">
+                                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#angle-up"></use>
+                                    </svg>
+                                </div>
+                                <ul class="navigation__sub-menu navigation__sub-menu--first-level">
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/learning-center/">Learning Center</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/power-to-choose/">Power to Choose</a>
+                                    </li>
+                                    <li class="navigation__sub-menu-item">
+                                        <a class="navigation__sub-nav-link" href="/no-deposit/">No Deposit</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <div class="zip-search-wrapper u-display-none">
+                                <div class="zip-search__mover-switcher-error">
+                                    Please fill in the item(s) in red below to see rates.
+                                </div>
+                                <!-- <form  class="zip-search zip-search--header u-display-none@md  zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search"  name="Zip Search Form">                                         -->
+                                <div
+                                    class="zip-search  zip-search--home zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search">
+                                    <div class="zip-search__mover-switcher" data-preamp="mover-switcher-zip-search">
+                                    </div>
+                                    <div
+                                        class="u-display-flex u-flex-wrap-nowrap u-justify-content-space-around u-text-align-center u-flex-direction-row">
+                                        <input class="zip-search__input " name="zip" placeholder="Enter ZIP Code"
+                                            type="tel" maxlength="5" pattern="[0-9]{5}" required="">
+                                        <button class="zip-search__submit button button--form" type="submit">Get
+                                            Rates</button>
+                                    </div>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <a href="tel:8448745016" class="call-to-action  header__call-to-action  js-call-center-info" data-fuse=""
+            data-fuse-format="" data-fuse-name="ES-SOE-FUSE-PERMA-BANNER" style="visibility: visible;">
+            <div class="call-to-action__content">
+                <svg class="svg svg--phone svg--15 call-to-action__icon u-color-white" aria-hidden="true">
+                    <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#phone"></use>
+                </svg>
+                <span class="call-to-action__copy">
+                    Tap to Call 1-855-380-8348
+                </span>
+            </div>
+        </a>
+    </header>
+    <div class="hero hero--home" data-preamp="true">
+        <svg class="svg svg--bolt-1 " aria-hidden="true">
+            <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-1"></use>
+        </svg>
+        <div class="section__inner u-display-flex u-flex-direction-column u-flex-direction-row@md">
+            <div style="width:100%">
+                <div class="hero__text" style="margin:auto;max-width: none !important;text-align: center;">
+                    <h1 class="hero__headline" style="color:#fff">Low rates. Simple<br> shopping. Easy signup.</h1>
+                    <p class="hero__subhead" style="color:#fff">Over 1 million have switched - why not you?</p>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="webform-component webform-component-radios" id="webform-component-group-1--sex"
+            style="width:60%;margin:auto;margin-top:40px">
+            <div class="form-item">
+
+                <div class="form-radios fancy-form">
+                    <div class="form-item" id="edit-submitted-group-1-sex-1-wrapper">
+                        <label class="option home" for="home" (click)="select_service('home')">
+                            <input type="radio" id="home" name="" value="71" tabindex="1"
+                                class="form-radio edit-submitted-group-1-sex-1">
+                            Shop for Home Electricity
+                        </label>
+                    </div>
+                    <div class="form-item" id="edit-submitted-group-1-sex-2-wrapper">
+                        <label class="option business" for="business" (click)="select_service('business')">
+                            <input type="radio" id="business" name="" value="72" tabindex="2"
+                                class="form-radio edit-submitted-group-1-sex-2">
+                            Shop for Business Electricity
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <main class="main main--">
+        <div class="main__inner">
+            <!-- If the drop alert banner is active and the hero is hidden, and the first section is section-copy -->
+            <div
+                class="call-to-action call-to-action--background-alternate u-display-none u-display-block@md call-to-action--steps">
+                <div class="section__inner call-to-action__inner">
+                    <p class="call-to-action__text">
+                        <span>Enter your ZIP code</span>
+                        <span>Find the lowest rate for you</span>
+                        <span>Sign up easily</span>
+                    </p>
+                </div>
+            </div>
+            <!-- If the drop alert banner is active and the hero is hidden, and the first section is section-copy -->
+            
+            <div class="slider-wrapper" >
+                <h3 class="testimonials__heading" style="text-align:center;color:#94449C">Featured Electricity suppliers</h3>
+                <div class="slider" data-snap-slider="{&quot;arrows&quot;:&quot;.arrow-button&quot;,&quot;initial&quot;:0}">
+                    <section class="slider__item"    style="transition: left 1s ease-in-out 0s; left: 0px;">
+                        <ul class="logo-slider__logo-list u-margin-top-lg">
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/txu-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-txu-energy.png" height="30"
+                                        alt=" logo">
+                                </a>
+                            </li>
+                            <li class="logo-slider__item">
+                                <img src="https://www.saveonenergy.com/uploads/2019/09/logo-reliant.png" height="30"
+                                    alt=" logo">
+        
+                            </li>
+                            <li class="logo-slider__item">
+                                <img src="https://www.saveonenergy.com/uploads/2019/09/logo-green-mountain.png" height="30"
+                                    alt=" logo">
+        
+                            </li>
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/constellation-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-constellation-energy.png"
+                                        height="30" alt=" logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="slider__item"   style="transition: left 1s ease-in-out 0s; left: 0px;">
+                        <ul class="logo-slider__logo-list u-margin-top-lg">
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/constellation-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-constellation-energy.png"
+                                        height="30" alt=" logo">
+                                </a>
+                            </li>
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/direct-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-direct-energy.png" height="30"
+                                        alt=" logo">
+                                </a>
+                            </li>
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/payless-power//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-payless-power-1.png" height="30"
+                                        alt=" logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="slider__item"    style="transition: left 1s ease-in-out 0s; left: 0px;">
+                        <ul class="logo-slider__logo-list u-margin-top-lg">
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/4change-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-4change-energy.png" height="30"
+                                        alt=" logo">
+                                </a>
+                            </li>
+        
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/just-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-just-energy.png" height="30"
+                                        alt=" logo">
+                                </a>
+                            </li>
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/first-choice-power//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-first-choice-power.png"
+                                        height="30" alt=" logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="slider__item"    style="transition: left 1s ease-in-out 0s; left: 0px;">
+                        <ul class="logo-slider__logo-list u-margin-top-lg">
+                            <li class="logo-slider__item">
+                                <img src="https://www.saveonenergy.com/uploads/2019/09/logo-discount-power.png" height="30"
+                                    alt=" logo">
+                            </li>
+                            <li class="logo-slider__item">
+                                <img src="https://www.saveonenergy.com/uploads/2019/09/logo-cirro-energy.png" height="30"
+                                    alt=" logo">
+                            </li>
+        
+                            <li class="logo-slider__item">
+                                <a href="https://www.saveonenergy.com/providers/trieagle-energy//">
+                                    <img src="https://www.saveonenergy.com/uploads/2019/09/logo-trieagle-energy-1.png"
+                                        height="30" alt=" logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <div  class="slider-arrows">
+                    <a  class="slider-arrows__prev arrow-button" (click)="slider(1)">
+                        <svg aria-hidden="true"   class="svg svg--angle-left svg--6" viewBox="0 0 192 512">
+                            <path  d="M4.2 247.5L151 99.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17L69.3 256l118.5 119.7c4.7 4.7 4.7 12.3 0 17L168 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 264.5c-4.7-4.7-4.7-12.3 0-17z"
+                                fill="#CECECE"></path>
+                        </svg>
+                    </a>
+                    <a class="slider-arrows__next arrow-button is-disabled"  (click)="slider(2)">
+                        <svg   aria-hidden="true" class="svg svg--angle-right svg--6" viewBox="0 0 192 512">
+                            <path  d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"
+                                fill="#CECECE"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="testimonials">
+                    <h3 >Testimonials</h3>
+                    <p>"I said enough is enough with my high enegy bills and switched</p>
+                    <p>both natural gas and electricity suppliers. I'm sorry I didn't</p>
+                    <p>switch sooner! Thanks Choose Energy!"</p>
+                    <p style="margin-top:30px">__Janette, Reynoldsburg, OH</p>
+                </div>
+            <div class="section section--homepage-copy section-homepage-copy--1 u-background-color-purple-1">
+                <div class="section__inner">
+                    <svg class="svg svg--bolt-1 " aria-hidden="true">
+                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-1"></use>
+                    </svg>
+                    <div class="content u-width-1/1">
+                        <div class="content__body">
+                            <h2 class="content__heading">Shopping for electricity the easy - and cheap - way</h2>
+                            <p>Whether you’re new to the Texas energy market or a veteran looking for a better plan,
+                                SaveOnEnergy.com® can help!</p>
+                            <p>SaveOnEnergy.com has helped more than a million Texans compare rates and plans from
+                                trusted retail electricity providers. Don’t pay too much when you have the power to
+                                choose a better plan. Get started now.</p>
+                        </div>
+                        <div class="zip-search-wrapper">
+                            <div class="zip-search__mover-switcher-error">
+                                Please fill in the item(s) in red below to see rates.
+                            </div>                           
+                        </div>
+                    </div>
+                    <div class="thumbnail u-margin-bottom-auto@md right">
+                        <div class="thumbnail-image-border">
+                            <img src="https://www.saveonenergy.com/uploads/2019/09/homepage-2.jpg"
+                                alt="Couple with baby in front of house">
+                        </div>
+                        <svg class="svg svg--bolt-2 " aria-hidden="true">
+                            <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-2"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="section section--homepage-copy section-homepage-copy--2 ">
+                <div class="section__inner">
+                    <svg class="svg svg--bolt-1 " aria-hidden="true">
+                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-1"></use>
+                    </svg>
+                    <div class="content u-width-1/1">
+                        <div class="content__body">
+                            <h2 class="content__heading">When is the best time to buy?</h2>
+                            <p>Electricity rates can change rapidly – don’t wait for summer or winter price hikes.
+                                The best way to avoid seasonal price hikes is to lock in a great rate before prices
+                                go up.</p>
+                        </div>
+                        <div class="zip-search-wrapper">
+                            <div class="zip-search__mover-switcher-error">
+                                Please fill in the item(s) in red below to see rates.
+                            </div>
+                            <!-- <form class="zip-search  zip-search--home zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search" name="Zip Search Form"> -->
+                            <!-- <div  class="zip-search  zip-search--home zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search">
+                                            <div class="zip-search__mover-switcher" data-preamp="mover-switcher-zip-search">
+                                            </div>
+                                            <div  class="u-display-flex u-flex-wrap-nowrap u-justify-content-space-around u-text-align-center u-flex-direction-row">
+                                                <input class="zip-search__input " name="zip" placeholder="Enter ZIP Code" type="tel" maxlength="5" pattern="[0-9]{5}" required="">
+                                                <button class="zip-search__submit button button--form" type="submit">Show Me Rates</button>
+                                            </div>
+                                        </div> -->
+                            <!-- </form> -->
+                            <!-- <a href="/commercial-energy-rates/" class="zip-search__link u-margin-top-md">For Business</a> -->
+                        </div>
+                    </div>
+
+                    <div class="thumbnail u-margin-bottom-auto@md left">
+                        <div class="thumbnail-image-border">
+                            <img src="https://www.saveonenergy.com/uploads/2019/09/homepage-1.jpg" alt="">
+                        </div>
+                        <svg class="svg svg--bolt-2 " aria-hidden="true">
+                            <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-2"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="section section--homepage-copy section-homepage-copy--3 ">
+                <div class="section__inner">
+                    <svg class="svg svg--bolt-1 " aria-hidden="true">
+                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-1"></use>
+                    </svg>
+                    <div class="content u-width-1/1">
+                        <div class="content__body">
+                            <h2 class="content__heading">You Have the Power to Choose</h2>
+                            <p>SaveOnEnergy.com® helps deregulated energy consumers in Texas and across the country
+                                understand their energy options. Put simply, it gives you a choice of energy
+                                providers.</p>
+                        </div>
+                        <div class="zip-search-wrapper">
+                            <div class="zip-search__mover-switcher-error">
+                                Please fill in the item(s) in red below to see rates.
+                            </div>
+                            <!-- <form class="zip-search  zip-search--home zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search" name="Zip Search Form"> -->
+
+                            <!-- <div  class="zip-search  zip-search--home zip-search-- u-margin-top-sm u-flex-direction-column js-zip-search">
+                                        <div class="zip-search__mover-switcher" data-preamp="mover-switcher-zip-search">
+                                        </div>
+                                        <div class="u-display-flex u-flex-wrap-nowrap u-justify-content-space-around u-text-align-center u-flex-direction-row">
+                                            <input class="zip-search__input " name="zip" placeholder="Enter ZIP Code" type="tel" maxlength="5" pattern="[0-9]{5}" required="">
+                                            <button class="zip-search__submit button button--form" type="submit">Show Me Rates</button>
+                                        </div>
+                                    </div> -->
+                            <!-- </form> -->
+                            <!-- <a href="/commercial-energy-rates/" class="zip-search__link u-margin-top-md">For Business</a> -->
+                        </div>
+                    </div>
+                    <div class="thumbnail u-margin-bottom-auto@md right">
+                        <div class="thumbnail-image-border">
+                            <img src="https://www.saveonenergy.com/uploads/2019/09/homepage-3.jpg" alt="">
+                        </div>
+                        <svg class="svg svg--bolt-2 " aria-hidden="true">
+                            <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#bolt-2"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- If the drop alert banner is active and the hero is hidden, and the first section is section-copy -->
+            <div class="call-to-action call-to-action--background-default ">
+                <div
+                    class="section__inner call-to-action__inner u-display-flex u-flex-direction-column u-align-items-center">
+                    <p class="call-to-action__text">
+                        New to energy deregulation? Need help finding a plan?
+                    </p>
+                    <p class="call-to-action__em  js-call-center-info">
+                        <span class="u-display-block u-display-inline@md">WE’RE HERE! CALL</span>
+                        <span data-fuse="" data-fuse-format="1-###-###-####" data-fuse-name="ES-SOE-FUSE-PERMA-BANNER"
+                            style="visibility: visible;">1-844-874-5016</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="section__inner u-position-relative">
+            <ul class="u-display-flex u-flex-wrap-wrap u-justify-content-center">
+                <li class="footer-navigation__menu-item">
+                    <a href="/papowerswitch/" class="footer-navigation__nav-link">PA Power Switch</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/pa-gas-switch/" class="footer-navigation__nav-link">PA Gas Switch</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/power-to-choose/" class="footer-navigation__nav-link">Power to Choose</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/plug-in-illinois/" class="footer-navigation__nav-link">Plug In Illinois</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/energy-choice-ohio/" class="footer-navigation__nav-link">Energy Choice Ohio</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/shop-ohio-electric-and-natural-gas/" class="footer-navigation__nav-link">Apples to
+                        Apples Ohio</a>
+                </li>
+                <li class="footer-navigation__menu-item">
+                    <a href="/new-york-power-to-choose/" class="footer-navigation__nav-link">New York Power to
+                        Choose</a>
+                </li>
+            </ul>
+            <hr>
+            <div
+                class="footer__row u-display-flex u-flex-direction-column u-flex-direction-row@md u-justify-content-space-between u-align-items-center u-margin-top-lg">
+                <div class="footer__logo">
+                    <a class="footer__logo-link" href="/">
+                        <svg class="svg svg--logo-soe-white " aria-hidden="true">
+                            <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#logo-soe-white"></use>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="u-display-flex u-flex-wrap-wrap u-justify-content-center">
+                    <li class="footer-navigation__menu-item">
+                        <a href="/state-information/" class="footer-navigation__nav-link">Regions</a>
+                    </li>
+                    <li class="footer-navigation__menu-item">
+                        <a href="/providers/" class="footer-navigation__nav-link">Providers</a>
+                    </li>
+                    <li class="footer-navigation__menu-item">
+                        <a href="/commercial-energy-rates/" class="footer-navigation__nav-link">Energy For Business</a>
+                    </li>
+                    <li class="footer-navigation__menu-item">
+                        <a href="/learning-center/" class="footer-navigation__nav-link">Learning Center</a>
+                    </li>
+                    <li class="footer-navigation__menu-item">
+                        <a href="/power-to-choose/" class="footer-navigation__nav-link">Power to Choose</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__row u-justify-content-space-between u-align-items-flex-start">
+                <p class="footer__contact">
+                    SaveOnEnergy.com
+                    <br>
+                    1423 Red Ventures Drive
+                    <br>
+                    Fort Mill, SC 29707
+                    <br>
+                    Corporate Phone: 972-543-1040
+                </p>
+                <p class="footer__hours">
+                    Hours (CST)
+                    <br>
+                    Monday-Friday 7:00am-9:00pm
+                    <br>
+                    Saturday 8:00am-5:00pm
+                    <br>
+                    Closed Sunday
+                </p>
+                <div class="footer__block">
+                    <ul class="u-display-flex u-flex-wrap-wrap u-justify-content-center">
+                        <li class="footer-navigation__menu-item">
+                            <a href="/privacy/" class="footer-navigation__nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="footer-navigation__menu-item">
+                            <a href="/terms-of-use/" class="footer-navigation__nav-link">Legal Disclaimer</a>
+                        </li>
+                        <li class="footer-navigation__menu-item">
+                            <a href="https://admin.saveonenergy.com/login" class="footer-navigation__nav-link">Partner
+                                Login</a>
+                        </li>
+                        <li class="footer-navigation__menu-item">
+                            <a href="/accessibility/" class="footer-navigation__nav-link"> Accessibility</a>
+                        </li>
+                    </ul>
+                    <div class="u-display-flex u-flex-direction-column">
+                        <ul class="social-menu">
+                            <li class="social-menu__item">
+                                <a class="social-menu__link" href="https://www.facebook.com/SaveOnEnergyCom"
+                                    aria-label="Facebook Page">
+                                    <svg class="svg svg--facebook svg--9" aria-hidden="true">
+                                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social-menu__item">
+                                <a class="social-menu__link" href="https://twitter.com/SaveOnEnergyCom"
+                                    aria-label="Twitter Page">
+                                    <svg class="svg svg--twitter svg--9" aria-hidden="true">
+                                        <use xlink:href="/assets/default/svg/sprite-c7daa51930.svg#twitter"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="footer__accreditations">
+                            <li class="footer__accreditations-item bbb">
+                                <a
+                                    href="http://www.bbb.org/dallas/business-reviews/electric-companies/save-on-energycom-in-dallas-tx-90020866#bbbseal">
+                                    <img src="https://www.saveonenergy.com/assets/default/images/logo-bbb-8d571c0494.png"
+                                        alt="BBB Accredited Business A+">
+                                </a>
+                            </li>
+                            <li class="footer__accreditations-item mcafee">
+                                <a href="https://www.mcafeesecure.com/verify?host=www.saveonenergy.com">
+                                    <img src="https://www.saveonenergy.com/assets/default/images/logo-mcafee-7a211efcd0.png"
+                                        alt="McAfee Secure">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer__row u-flex-direction-column">
+                <p class="footer__copyright">© Copyright 2019 Save On Energy</p>
+                <p class="footer__copyright">SaveOnEnergy.com, the SaveOnEnergy.com logo, and "May the best rate
+                    win" are registered trademarks and/or service marks of Save On Energy, LLC.</p>
+            </div>
+        </div>
+        <div  class="section__inner u-display-flex u-justify-content-center u-justify-content-flex-end@md u-margin-top-md">
+            <a href="/" class="u-display-flex u-justify-content-center u-text-decoration-none">
+                <svg class="svg svg--flag-usa " aria-hidden="true" viewBox="0 0 7410 3900">
+                    <path fill="#b22234" d="M0 0h7410v3900H0z"></path>
+                    <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff"
+                        stroke-width="300"></path>
+                    <path fill="#3c3b6e" d="M0 0h2964v2100H0z"></path>
+                    <g fill="#fff">
+                        <g id="flag-usa-d">
+                            <g id="flag-usa-c">
+                                <g id="flag-usa-e">
+                                    <g id="flag-usa-b">
+                                        <path id="flag-usa-a"
+                                            d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"></path>
+                                        <use xlink:href="#flag-usa-a" y="420"></use>
+                                        <use xlink:href="#flag-usa-a" y="840"></use>
+                                        <use xlink:href="#flag-usa-a" y="1260"></use>
+                                    </g>
+                                    <use xlink:href="#flag-usa-a" y="1680"></use>
+                                </g>
+                                <use xlink:href="#flag-usa-b" x="247" y="210"></use>
+                            </g>
+                            <use xlink:href="#flag-usa-c" x="494"></use>
+                        </g>
+                        <use xlink:href="#flag-usa-d" x="988"></use>
+                        <use xlink:href="#flag-usa-c" x="1976"></use>
+                        <use xlink:href="#flag-usa-e" x="2470"></use>
+                    </g>
+                </svg>
+                <span>United States</span>
+            </a>
+            <a href="/uk/" class="u-display-flex u-justify-content-center u-text-decoration-none">
+                <svg class="svg svg--flag-uk " aria-hidden="true" viewBox="0 0 60 30">
+                    <clipPath id="flag-uk-a">
+                        <path d="M30 15h30v15zv15H0zH0V0zV0h30z"></path>
+                    </clipPath>
+                    <path d="M0 0v30h60V0z" fill="#00247d"></path>
+                    <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"></path>
+                    <path d="M0 0l60 30m0-30L0 30" clip-path="url(#flag-uk-a)" stroke="#cf142b" stroke-width="4"></path>
+                    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"></path>
+                    <path d="M30 0v30M0 15h60" stroke="#cf142b" stroke-width="6"></path>
+                </svg>
+                <span>United Kingdom</span>
+            </a>
+        </div>
+    </footer>
+
+</div>
+<script type="text/javascript"
+    id="">(function (b, c, e, f, d) { b[d] = b[d] || []; var g = function () { var a = { ti: "5725907" }; a.q = b[d]; b[d] = new UET(a); b[d].push("pageLoad") }; var a = c.createElement(e); a.src = f; a.async = 1; a.onload = a.onreadystatechange = function () { var b = this.readyState; b && "loaded" !== b && "complete" !== b || (g(), a.onload = a.onreadystatechange = null) }; c = c.getElementsByTagName(e)[0]; c.parentNode.insertBefore(a, c) })(window, document, "script", "https://bat.bing.com/bat.js", "uetq");</script>
+
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.796755921535061">
+    <img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.5156165255343446" width="0"
+        height="0" alt=""
+        src="https://bat.bing.com/action/0?ti=5725907&amp;Ver=2&amp;mid=6d757b5c-7a49-e9a9-c880-ca997237a13e&amp;pi=1200101525&amp;lg=en-US&amp;sw=1366&amp;sh=768&amp;sc=24&amp;tl=SaveOnEnergy%C2%AE%20%7C%20Electricity%20Companies%20in%20Texas%20%7C%20Call%20800-825-1252&amp;p=https%3A%2F%2Fwww.saveonenergy.com%2F&amp;r=&amp;lt=1356&amp;evt=pageLoad&amp;msclkid=N&amp;rn=286481">
+</div>
+<script type="application/javascript" id="ywa-1574108502269-148991" class="ywa-10000" defer=""
+    src="https://sp.analytics.yahoo.com/sp.pl?a=10000&amp;jsonp=YAHOO.ywa.I13N.handleJSONResponse&amp;d=Mon%2C%2018%20Nov%202019%2020%3A21%3A42%20GMT&amp;n=-6&amp;b=SaveOnEnergy%C2%AE%20%7C%20Electricity%20Companies%20in%20Texas%20%7C%20Call%20800-825-1252&amp;.yp=10086297&amp;f=https%3A%2F%2Fwww.saveonenergy.com%2F&amp;enc=UTF-8"></script>
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame"
+    src="https://vars.hotjar.com/box-b736908ce6b0e933fad3a2e45df61b38.html"
+    style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
+<link type="text/css" rel="stylesheet" href="https://bff-client.filo.ai/static/energy_soe_v2/css/client.min.css">
+<script type="text/javascript" src="https://bff-client.filo.ai/static/energy_soe_v2/js/client.min.js"></script>
+<div class="filo-container" id="filo">
+    <div class="filo filo--full">
+        <div class="filo-header">
+            <div class="filo-header__logo">Filo</div><i class="filo-icon-cross  filo-header__minimize"
+                (click)="chatclose()"></i>
+        </div>
+        <div class="filo-pane filo-pane--conversation" style="height: calc(100% - 45px);">
+            <div class="filo-pane__wrapper">
+                <div class="filo-conversation filo-conversation--client">
+                    <div class="filo-conversation__item filo-conversation__item--inbound">
+                        <div class="filo-conversation__dateborder-wrap">
+                            <div class="filo-conversation__dateborder"><span>today</span></div>
+                        </div>
+                        <div class="filo-avatar filo-conversation__avatar filo-conversation__avatar--left"></div>
+                        <div class="filo-conversation__messages">
+                            <div id="msg-bubble-rmgxx8ztwm4ptqrx" data-test="agent-message"
+                                class="filo-conversation__bubble">
+                                <div class="filo-rich-form is-valid">
+                                    <div class="filo-rich-form__row ">
+                                        <div class="filo-rich-form__column ">
+                                            <div class="filo-rich-form__styled ">
+                                                <span>
+                                                    <p>Hi, I can help you find a great energy plan! Are you moving
+                                                        to a new place or considering changing providers?</p>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filo-rich-form__row ">
+                                        <div class="filo-rich-form__column ">
+                                            <button class="filo-rich-form__button filo-rich-form__button--primary"
+                                                type="button" name="intent" value="moving">
+                                                <span>
+                                                    <p>I'm moving</p>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="filo-rich-form__row ">
+                                        <div class="filo-rich-form__column ">
+                                            <button class="filo-rich-form__button filo-rich-form__button--primary"
+                                                type="button" name="intent" value="switching">
+                                                <span>
+                                                    <p>Switch providers</p>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filo-timestamp filo-conversation__timestamp" style="color: red;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filo-composer filo-h-hidden">
+            <div class="filo-composer__message" style="height: 17px;">
+                <textarea id="filo-composer-message" class="filo-composer__message-input" placeholder="Send a message"
+                    data-min-rows="1" rows="1" style="height: 0px;"></textarea>
+                <div class="filo-composer__message-submit">Send</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="filodom-cta filodom-cta--visible" data-filo-hide="" (click)="chatopen();">
+    <span class="filodom-notification" data-filodom-notification=""></span>
+    <div>
+        <div id="soe-filo-svg-wrapper"
+            style="bottom: 0; cursor: pointer; line-height: 0; position: fixed; right: 0; width: 375px; height: 65px;"
+            data-filo-hide="" data-filo-toggle="bottom bar">
+            <svg xmlns="http://www.w3.org/2000/svg" id="soe-filo-svg" fill="transparent" viewBox="0 0 375 65"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                    <linearGradient id="b" x1="45.67%" x2="48.495%" y1="-26.899%" y2="119.573%">
+                        <stop stop-color="#F6F6F6" offset="0%"></stop>
+                        <stop stop-color="#E1EBF2" offset="100%"></stop>
+                    </linearGradient>
+                    <linearGradient id="c" x1="50%" x2="51.818%" y1="0%" y2="136.52%">
+                        <stop stop-color="#5B6E7E" offset="0%"></stop>
+                        <stop stop-color="#42596D" offset="100%"></stop>
+                    </linearGradient>
+                    <path id="a" d="M6 0h363c3.314 0 6 2.686 6 6v59H0V6c0-3.314 2.686-6 6-6z"></path>
+                    <path id="f"
+                        d="M349.225 36.36l-6.725-6.725-6.725 6.725-1.744-1.743 7.6-7.598c.23-.235.546-.365.87-.365.33 0 .64.13.875.36l7.597 7.6-1.744 1.742zM353.92 21h-22.84c-2.253 0-4.08 1.827-4.08 4.08v13.21c0 2.254 1.827 4.08 4.08 4.08h13.978l5.084 5.085V42.37h3.777c2.25 0 4.08-1.826 4.08-4.08V25.08c0-2.253-1.83-4.08-4.08-4.08z">
+                    </path>
+                    <filter id="e" width="112.9%" height="115.1%" x="-3.2%" y="-3.8%" filterUnits="objectBoundingBox">
+                        <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                        <feGaussianBlur stdDeviation=".5" in="shadowOffsetOuter1" result="shadowBlurOuter1">
+                        </feGaussianBlur>
+                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.184273098 0" in="shadowBlurOuter1">
+                        </feColorMatrix>
+                    </filter>
+                </defs>
+                <g fill="none" fill-rule="evenodd">
+                    <mask id="d" fill="#fff">
+                        <use xlink:href="#a"></use>
+                    </mask>
+                    <use fill="#F2F1F1" xlink:href="#a"></use>
+                    <use fill="url(#b)" xlink:href="#a"></use>
+                    <use fill="#5B6E7E" style="mix-blend-mode:overlay" xlink:href="#a"></use>
+                    <use fill="url(#c)" xlink:href="#a"></use>
+                    <path fill="#000" fill-opacity=".148" d="M310 0h65v65h-65z" mask="url(#d)"></path>
+                    <g mask="url(#d)">
+                        <use fill="#000" filter="url(#e)" xlink:href="#f"></use>
+                        <use fill="#FFF" xlink:href="#f"></use>
+                    </g>
+                    <g mask="url(#d)" letter-spacing="-.3" font-size="16" transform="translate(25 20)">
+                        <text font-family="OpenSans-Regular, Open Sans">
+                            <tspan x="0" y="17" fill="#FFF">Need Assistance?</tspan>
+                        </text>
+                        <text font-family="OpenSans-Bold, Open Sans" font-weight="bold">
+                            <tspan x="130" y="19" fill="#FFF">Click to Chat</tspan>
+                        </text>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+</div>
